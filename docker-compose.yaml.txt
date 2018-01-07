@@ -1,0 +1,17 @@
+#Secrets
+version: '3.1'
+services:
+ webv1:
+    image: voteweb:v1
+    labels:
+     com.example.description: "voting application webserver"
+     com.example.department: "devops"
+    ports:
+      - "8081:80"
+    secrets:
+       - source: homepage
+         target: /var/www/html/index.html
+
+secrets:
+    homepage:
+      external: true
